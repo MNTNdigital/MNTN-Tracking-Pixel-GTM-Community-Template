@@ -15,9 +15,9 @@
 ___INFO___
 
 {
-  "displayName": "Example Template",
-  "description": "This is an example template. For more information, visit https://developers.google.com/tag-manager/templates",
-  "categories": ["AFFILIATE_MARKETING", "ADVERTISING"],
+  "displayName": "MNTN Tracking Template",
+  "description": "This is the MNTN GTM tracking pixel template",
+  "categories": ["ADVERTISING", "ANALYTICS","REMARKETING"],
   "securityGroups": [],
   "id": "cvt_temp_public_id",
   "type": "TAG",
@@ -91,18 +91,24 @@ ___WEB_PERMISSIONS___
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 // Enter your template code here.
-const queryPermission = require('queryPermission');
-const getReferrerUrl = require('getReferrerUrl');
-let referrer;
-if (queryPermission('get_referrer', 'query')) {
-  referrer = getReferrerUrl('queryParams');
-}
-
-var log = require('logToConsole');
-log('data =', data);
-
-// Call data.gtmOnSuccess when the tag is finished.
-data.gtmOnSuccess();
+// require relevant API
+const sendPixel = require('sendPixel');
+const encodeUriComponent = require('encodeUriComponent');
+const tdr = require('getReferrerUrl');
+const plh = require('getUrl');
+const Math = require('Math');
+const injectScript = require('injectScript');
+const logToConsole = require('logToConsole');
+const generateRandom = require('generateRandom');
+const randomNumber = generateRandom(1,10);
+const powerful =  Math.pow(randomNumber, 17);
+const cb = Math.floor(powerful);
+// capture values of template fields
+const account = data.advertisertId;
+// use the provided APIs to create the pixel call
+const url = 'https://dx.mountain.com/spx?dxver=4.0.0&shaid=' + encodeUriComponent(account) + "&tdr=" + tdr() + "&plh=" + plh() + "&cb=" + encodeUriComponent(cb);
+injectScript(url, data.gtmOnSuccess, data.gtmOnFailure);
+//sendPixel(url, data.gtmOnSuccess, data.gtmOnFailure);
 
 
 ___NOTES___
