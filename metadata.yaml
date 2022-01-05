@@ -15,5 +15,5 @@
 homepage: "https://mountain.com/"
 documentation: "https://mountain.com/"
 versions:
-  - sha: 5f02a788b90ae804f86b04aa24af8937e567874a
+  - sha: cb908f1433de7dbaf070d0e2aae0b58275524aba
     changeNotes: Initial Version
