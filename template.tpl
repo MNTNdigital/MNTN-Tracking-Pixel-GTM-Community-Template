@@ -67,7 +67,7 @@ const cb = Math.floor(powerful);
 const account = data.advertisertId;
 
 // use the provided APIs to create the pixel call
-const url = 'https://dx.mountain.com/spx?dxver=4.0.0&shaid=' + encodeUriComponent(account) + "&tdr=" + tdr() + "&plh=" + plh() + "&cb=" + encodeUriComponent(cb);
+const url = 'https://dx.mountain.com/spx?dxver=4.0.0&shaid=' + encodeUriComponent(account) + "&tdr=" + encodeUriComponent(tdr()) + "&plh=" + encodeUriComponent(plh()) + "&cb=" + encodeUriComponent(cb);
 
 
 injectScript(url, data.gtmOnSuccess, data.gtmOnFailure);
