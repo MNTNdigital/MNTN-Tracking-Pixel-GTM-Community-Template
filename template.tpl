@@ -69,10 +69,10 @@ const account = data.advertisertId;
 // use the provided APIs to create the pixel call
 const url = 'https://dx.mountain.com/spx?dxver=4.0.0&shaid=' + encodeUriComponent(account) + "&tdr=" + encodeUriComponent(tdr()) + "&plh=" + encodeUriComponent(plh()) + "&cb=" + encodeUriComponent(cb);
 
-
+//sendPixel(url, data.gtmOnSuccess, data.gtmOnFailure);
 injectScript(url, data.gtmOnSuccess, data.gtmOnFailure);
 
-//sendPixel(url, data.gtmOnSuccess, data.gtmOnFailure);
+
 
 
 ___WEB_PERMISSIONS___
